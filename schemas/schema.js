@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const businessAccount = new Schema({
+const businessAccountSchema = new Schema({
     "userEmail": {
         type: String,
         required: true
-    }
+    },
     "userName": {
         type: String,
-        required: true
-    }
+    },
     "userPassword": {
         type: String,
         required: true
@@ -19,3 +18,10 @@ const businessAccount = new Schema({
         required: true
     }
 }, {timestamps: true}) 
+
+
+const businessAccount = mongoose.model('businessAccounts', businessAccountSchema);
+
+module.exports = {
+    businessAccount
+}

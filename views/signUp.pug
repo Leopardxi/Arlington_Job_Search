@@ -2,4 +2,11 @@ html
     head 
 
     body 
-        p !{email}
+        input#email(type="email",name="email",value=email, disabled)
+        input#password(type="password",name="password",placeholder="Password")
+        div 
+            button#signUpBtn(type="submit", onclick="createAccount()") Sign Up
+        script. 
+            const jwtToken = "#{jwtToken}"
+        script 
+            include js/signUp.js
