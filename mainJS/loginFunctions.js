@@ -3,6 +3,13 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const schemas = require('../schemas/schema.js');
 
+/*
+    Verifies if the json web token passed in is correct or not
+    If it's correct then returns the decoded token otheriwse it returns false
+
+    String token -> token that needs to be checked
+    String secert -> secert it to verify with to see if jwt is tampered with or not
+*/
 function verifyJWTToken(token, secert) {
     if (token == null) return false
 
@@ -14,6 +21,13 @@ function verifyJWTToken(token, secert) {
     }
 }
 
+/*
+    Creates a new jwt token
+
+    Object data ->
+    String secert ->
+    String expiresIn ->
+*/
 function createJWTToken(data, secert, expiresIn) {
     return jwt.sign(data, secert, { expiresIn: expiresIn })
 }
@@ -64,9 +78,6 @@ async function createAccount(req, res) {
     });
     
     await newUser.save();
-
-    res.cookie('accessToken', createJWTToken({ 'email': email }, process.env.ACCESS_TOKEN_SECERT, "30m"), { httpOnly: true, secure: true, sameSite: 'none' } )
-    res.cookie('refreshToken', createJWTToken({ 'email': email }, process.env.REFRESH_TOKEN_SECERT, "30d"), { httpOnly: true, secure: true, sameSite: 'none' })
     return res.status(201).send("Done!!!");
 }
 
