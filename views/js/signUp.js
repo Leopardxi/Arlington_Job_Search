@@ -16,4 +16,4 @@ async function createAccount() {
     if (fetchData.status != 200 && fetchData.status != 201) return alert(resp);
 
     window.location.href = '/dashboard';
-}  
+}

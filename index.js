@@ -32,5 +32,6 @@ app.get('/dashboard', loginFunctions.checkCookieForLogin, pathFunctions.renderDa
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log( process.env.SERVER_LINK);
 });
 console.log("hi")
