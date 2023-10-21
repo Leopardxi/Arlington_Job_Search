@@ -1,10 +1,13 @@
 html 
     head 
+        style 
+            include ./css/style.css
     body 
-        div Create an Account
-        input(id="email", type="text")
-        div(onclick="verifyEmail()") Verify Email
-        div Tell us a little bit about your buisness
-        input(type="text")
+        div(id ="accountcreate") Create an Account!
+            div(onclick="verifyEmail()") Verify Email
+            input(id="email", type="text")
+            
+            div Tell us a little bit about your buisness
+            input(type="text")
         script
             include js/test.js

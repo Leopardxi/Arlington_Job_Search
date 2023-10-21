@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 4300;
 // Set up view engine
 app.set('view engine', 'pug');
 app.use(express.static('public'))
+app.use(express.static('css'));
 app.use(express.json())
 app.use(cookieParser())
 require('dotenv').config();
@@ -34,4 +35,3 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     console.log( process.env.SERVER_LINK);
 });
-console.log("hi")
