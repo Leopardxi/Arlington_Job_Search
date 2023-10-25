@@ -3,11 +3,25 @@ html
         style 
             include ./css/style.css
     body 
-        div(id ="accountcreate") Create an Account!
-            div(onclick="verifyEmail()") Verify Email
-            input(id="email", type="text")
+    uploads/logo.png
+    div(id="introheader")
+        img(src="logo.png", id="logoimage")
+        div(id="title") Arlington Job Search
+    
+    div(id="slogan") Find jobs in Arlington!
+    
+    //- Add later a(href="https://www.flaticon.com/free-icons/human-resources", title="human resources icons") Human resources icons created by sonnycandra - Flaticon
+    div(id="loginButton") Login
+    
+        div(id="accountcreate")
+            //-h1(id ="accountcreatetitle") Create an Account!
+            div Email
+            input(id="email", type="text",class="createinput")
             
-            div Tell us a little bit about your buisness
-            input(type="text")
+            div Info about your buisness
+                input(id="buisnessinfo",type="text")
+            div *We need this information to verify that you are a buisness owner in Arlington
+            div(id="verifyemail",onclick="verifyEmail()") Verify Email
+    
         script
             include js/test.js
