@@ -3,20 +3,22 @@ html
         style 
             include ./css/style.css
     body 
+    uploads/blue-snow.png
     uploads/logo.png
     div(id="introheader")
         img(src="logo.png", id="logoimage")
         div(id="title") Arlington Job Search
     
-    div(id="slogan") Find jobs in Arlington!
+    div(id="slogan") Find jobs in Arlington
     
     //- Add later a(href="https://www.flaticon.com/free-icons/human-resources", title="human resources icons") Human resources icons created by sonnycandra - Flaticon
-    div(id="loginButton") Login
-    
-        div(id="accountcreate")
+    div(id="loginaccountbutton")
+        div(id="businessaccountbutton") Business Account
+        div(id="studentaccountbutton") Student Account
+        //-div(id="accountcreate")
             //-h1(id ="accountcreatetitle") Create an Account!
             div Email
-            input(id="email", type="text",class="createinput")
+            input(class="email", type="text",class="createinput")
             
             div Info about your buisness
                 input(id="buisnessinfo",type="text")

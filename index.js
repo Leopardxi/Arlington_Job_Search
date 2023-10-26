@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4300;
 app.set('view engine', 'pug');
 app.use(express.static('public'))
 app.use(express.static('css'));
-http://localhost:3000/image/logo.png
+
 app.use(express.json())
 app.use(cookieParser())
 require('dotenv').config();
