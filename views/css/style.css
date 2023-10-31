@@ -1,5 +1,7 @@
 body{
     background-color:#d4eef8;
+    overflow:scroll;
+    margin-left:20px;
 }
 #accountcreate{
     display:flex;
@@ -8,9 +10,9 @@ body{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    margin-top:5%;
     width: 300px;
     margin-right: 25%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 #accountcreatetitle{
     text-align: center;
@@ -59,7 +61,48 @@ body{
     color:#190482;
 }
 #slogan{
-    font-size: 20px;
+    margin-top:60px;
+    margin-bottom:30px;
+    font-size: 50px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#3e26b4;
+    width:540px;
+    
+    
+}
+#loginButton{
+    display:flex;
+    flex-direction:row;
+    width:540px;
+    justify-content:center;
+}
+#businessLoginButton{
+    background-color: #fcf0f4;
+    border-color:black;
+    border-width:1px;
+    border-style:solid;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 20px;
+    margin-right:50px;
+    font-size:18px;
+    width: 80px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:center;
+    color:#190482;
+    
+}
+#studentLoginButton{
+    font-size:18px;
+    background-color: #fcf0f4;
+    border-color:black;
+    border-width:1px;
+    border-style:solid;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 20px;
+    width: 80px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:center;
     color:#190482;
 }
