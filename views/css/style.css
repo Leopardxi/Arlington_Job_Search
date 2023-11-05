@@ -18,30 +18,9 @@ body{
     text-align: center;
     color:#190482;
 }
-#verifyemail{
-    background-color: #6499E9;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    margin-top:5%;
-    width: 25%;
-    margin-left: 35%;
-    margin-right: 35%;
-}
-#buisnessinfo{
-    border-radius: 5px;
-    padding: 10px;
-    width: 500px;
-    margin-right: 35%;
-    height:150px;
-}
+
 .createinput{
     border-radius:4px;
-}
-#email{
-    width:500px;
-    margin-bottom:15%;
-    height:35px;
 }
 #logoimage{
    height:50px;
@@ -70,13 +49,13 @@ body{
     
     
 }
-#loginButton{
+#SignUpButton{
     display:flex;
     flex-direction:row;
     width:540px;
     justify-content:center;
 }
-#businessLoginButton{
+#businessSignUpButton{
     background-color: #fcf0f4;
     border-color:black;
     border-width:1px;
@@ -92,7 +71,7 @@ body{
     color:#190482;
     
 }
-#studentLoginButton{
+#studentSignUpButton{
     font-size:18px;
     background-color: #fcf0f4;
     border-color:black;
@@ -105,4 +84,67 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align:center;
     color:#190482;
+}
+#businessemail[type="text"]{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:16px;
+}
+#businessemail{
+    width:500px;
+    margin-bottom:60px;
+    height:35px;
+    padding:10px;
+}
+#buisnessemailtext{
+    font-size:24px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#190482;
+    margin-bottom:10px;
+}
+#businessinfotext{
+    display:flex;
+    flex-direction:row;
+    font-size:24px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#190482;
+
+}
+#infoimage{
+    height:2.5%;
+    width:2.5%;
+    padding-top:2px;
+}
+#infoimage:hover{
+    height:3%;
+    width:3%;
+    padding-top:2px;
+}
+#buisnessinfoandimage{
+    display:flex;
+    flex-direction:row;
+    width:500px;
+    margin-bottom:10px;
+}
+#businessinfo{
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+    height:150px;
+}
+#businessinfo[type="text"]{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:16px;
+    text-align:top;
+    
+}
+
+#verifyemail{
+    background-color: #6499E9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    margin-top:5%;
+    width: 25%;
+    margin-left: 35%;
+    margin-right: 35%;
 }

@@ -11,18 +11,20 @@ html
         div(id="slogan") Find jobs in Arlington
         
             //- Add later a(href="https://www.flaticon.com/free-icons/human-resources", title="human resources icons") Human resources icons created by sonnycandra - Flaticon
-        div(id="loginButton")
-            div(id="businessLoginButton") Business
-            div(id="studentLoginButton") Student
+        div(id="SignUpButton")
+            div(id="businessSignUpButton") Business
+            div(id="studentSignUpButton") Student
 
     
         div(id="accountcreate")
             //-h1(id ="accountcreatetitle") Create an Account!
-            div Email
-            input(id="email", type="text",class="createinput")
-            
-            div Info about your buisness
-                input(id="buisnessinfo",type="text")
+            div(id="buisnessemailtext") Email
+            input(id="businessemail", type="text",class="createinput")
+            div(id="buisnessinfoandimage")
+                div(id="businessinfotext") Info about your buisness
+                img(src="information.png", id="infoimage")
+                //-<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>
+            input(id="businessinfo",type="text")
             div *We need this information to verify that you are a buisness owner in Arlington
             div(id="verifyemail",onclick="verifyEmail()") Verify Email
     
