@@ -1,7 +1,10 @@
 body{
     background-color:#d4eef8;
     overflow:scroll;
-    margin-left:20px;
+    margin-left:40px;
+}
+#leftsideSignUp{
+    width:600px;
 }
 #accountcreate{
     display:flex;
@@ -10,10 +13,11 @@ body{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    width: 300px;
+    width: 500px;
     margin-right: 25%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
 #accountcreatetitle{
     text-align: center;
     color:#190482;
@@ -144,7 +148,7 @@ body{
     padding: 20px;
     margin: 10px;
     margin-top:5%;
-    width: 25%;
-    margin-left: 35%;
-    margin-right: 35%;
+    align-self:center;
+    width:100px;
+
 }
