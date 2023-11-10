@@ -25,12 +25,15 @@ app.get('/', (req, res) => {
     return res.render('index');
 });
 
-app.post('/api/sendVerificationEmail', loginFunctions.emailVerify);
+app.get('/api/approveAccount', loginFunctions.approveAccount);
 app.post('/api/createAccount', loginFunctions.createAccount);
 app.post('/api/loginAccount', loginFunctions.loginAccount);
+app.post('/api/sendEmailToAdminForNewAccount', loginFunctions.sendEmailToAdminForNewAccount);
+
 // Render webpages
 app.get('/signUp/:jwtToken', loginFunctions.sendSignUpPage);
 app.get('/dashboard', loginFunctions.checkCookieForLogin, pathFunctions.renderDashboard);
+app.get('/login', pathFunctions.renderLogin);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
