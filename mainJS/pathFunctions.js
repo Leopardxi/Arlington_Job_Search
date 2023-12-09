@@ -7,6 +7,11 @@ async function renderDashboard(req, res, next){
     return res.render('dashboard', {email: decodedToken.email});
 }
 
+async function renderLogin(req, res){
+    return res.render('login');
+}
+
 module.exports = {
-    renderDashboard
+    renderDashboard,
+    renderLogin
 } 

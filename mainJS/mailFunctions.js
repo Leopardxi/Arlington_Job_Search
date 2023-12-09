@@ -8,13 +8,17 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-async function mailLink(emailToSend, linkMade, attachmentsGiven = [], subject = "") {
+async function mailLink(emailToSend, body, attachmentsGiven = [], subject = "", isHTML = false) {
     let mailOptions = {
         from: process.env.MAIL_EMAIL,
         to: emailToSend,
         subject: subject,
-        text: linkMade,
+        text: body,
         attachments: attachmentsGiven
+    }
+    if (isHTML) {
+        mailOptions.html = body;
+        delete mailOptions.text;
     }
     return new Promise((resolve, reject) => {
         transporter.sendMail(mailOptions, (error, info) => {
