@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 const loginFunctions = require('./mainJS/loginFunctions.js')
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.get('/api/approveAccount', loginFunctions.approveAccount);
 app.post('/api/createAccount', loginFunctions.createAccount);
 app.post('/api/loginAccount', loginFunctions.loginAccount);
+
 app.post('/api/sendEmailToAdminForNewAccount', loginFunctions.sendEmailToAdminForNewAccount);
 
 // Render webpages

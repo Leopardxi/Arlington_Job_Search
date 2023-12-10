@@ -27,7 +27,24 @@ html
                     //-<a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a>
                 input(id="businessinfo",type="text")
                 div(id="verifyemail",onclick="verifyEmail()") Verify Email
-        img(src="https://3.files.edl.io/331c/23/06/29/194424-6175b24e-d3ba-4212-899e-4ed2ba33b07f.jpeg")
+        //-img(src="https://3.files.edl.io/331c/23/06/29/194424-6175b24e-d3ba-4212-899e-4ed2ba33b07f.jpeg")
+        form(id="buissnessaccount",action="/api/sendEmailToAdminForNewAccount", method="POST")
+            input(type="text", placeholder="Enter your email", name="email")
+            input(type="text", placeholder="Enter your name", name="name")
+            button(type="submit") Submit
+        
     
         script
             include js/test.js
+//- <p>Business email: ${req.body.email}</p>
+       //- <p>Business name: ${req.body.businessName}</p>
+       //- <p>Business address: ${req.body.businessAddress}</p>
+       //- <p>Business phone number: ${req.body.businessPhoneNumber}</p>
+       //- <p>Business website: ${req.body.businessWebsite}</p>
+       //- <p>Business description: ${req.body.businessDescription}</p>
+       //- <p>Other information: ${req.body.otherInformation}</p>
+    input(type="text", placeholder="Enter your address", name="businessaddressinput")
+            input(type="text", placeholder="Enter your phone number", name="businessphoneinput")
+            input(type="text", placeholder="Enter your website", id="businesswebsiteinput")
+            input(type="text", placeholder="Enter your description", id="businessdescripinput")
+            input(type="text", placeholder="Enter other information", id="businessinfoinput")
