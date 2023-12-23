@@ -18,6 +18,41 @@ async function createAccount() {
 
     window.location.href = '/dashboard';
 }
+/*
+fetch('/submit',{
+    method:'POST',
+    headers:{
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        'email': document.getElementById('email').value, //needs to be by name not id
+        'name': document.getElementById('name').value,
+        'jwtToken': jwtToken
+    })
+
+})
+*/
+/*
+async function adminAccount() {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'email': document.getElementById('emailform').value,
+            'name': document.getElementById('nameform').value,
+            'jwtToken': jwtToken
+        })
+    }
+    const fetchData = await fetch('/api/sendEmailToAdminForNewAccount', options);
+    var resp = await fetchData.text();
+
+    if (fetchData.status != 200 && fetchData.status != 201) return alert(resp);
+
+    window.location.href = '/dashboard';
+}
+*/
 // Sends a request to the server to verify the email
 async function verifyEmail (){
     const options = {
@@ -52,3 +87,32 @@ async function loginAccount() {
 
     window.location.href = '/dashboard';
 }
+// Sends a request to the server to send an email to approve it
+async function sendEmailForApproval(){
+    const options = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'email': document.querySelector('#buissnessaccount #emailform').value,
+            'name': document.querySelector('#buissnessaccount #nameform').value
+        })
+    }
+    const fetchData = await fetch('/api/sendEmailToAdminForNewAccount', options);
+    var resp = await fetchData.text();
+    
+    if (fetchData.status != 200 && fetchData.status != 201){
+        return alert("There was an issue for requesting the service.")
+    }
+    alert(resp);
+    //window.location.href = '/dashboard';
+}
+
+//we need to change getElementsById to getElementsByName I think since it's part of a form
+// nah we can stil use getElemtntById
+// sahre me the link for the port
+//Let's just deal with name and email and we can worry about the rest later
+//alr
+///Oh, so we're able to send through options the data we want to send to the server
+// yeah

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const loginFunctions = require('./mainJS/loginFunctions.js')
 const pathFunctions = require('./mainJS/pathFunctions.js')
 const cookieParser = require('cookie-parser')
-
+//https://solid-carnival-wpqwqjr66452prq-4300.app.github.dev/
 const PORT = process.env.PORT || 4300;
 // Set up view engine
 app.set('view engine', 'pug');
@@ -13,6 +13,7 @@ app.use(express.static('public'))
 app.use(express.static('css'));
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 require('dotenv').config();
 
@@ -29,6 +30,11 @@ app.get('/', (req, res) => {
 app.get('/api/approveAccount', loginFunctions.approveAccount);
 app.post('/api/createAccount', loginFunctions.createAccount);
 app.post('/api/loginAccount', loginFunctions.loginAccount);
+
+/*app.post('/submit', async (req, res) => {
+    loginFunctions.sendEmailToAdminForNewAccount(req, res);
+});
+*/
 
 app.post('/api/sendEmailToAdminForNewAccount', loginFunctions.sendEmailToAdminForNewAccount);
 

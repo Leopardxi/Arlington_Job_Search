@@ -44,7 +44,7 @@ async function approveAccount(req, res) {
     console.log(decodedToken.email);
     
     let jwtToken = jwt.sign({ 'email': decodedToken.email }, process.env.ACCESS_TOKEN_SECERT, { expiresIn: "7d" });
-    let link = "http://" + process.env.SERVER_LINK + '/signUp/' + jwtToken;
+    let link = "http://" + process.env.SERVER_LINK + 'signUp/' + jwtToken;
 
     await mailFunctions.mailLink(decodedToken.email, link, [], 'Your account was approved!! Make your account by clicking the link');
 
@@ -133,20 +133,20 @@ function makeNewAccessToken(refreshToken){
 */
 async function sendEmailToAdminForNewAccount(req, res){
     if (typeof req.body.email !== "string") return res.status(400).send("No email was given to verify")
-    let jwtToken = jwt.sign({ 'email': req.body.email }, process.env.ACCESS_TOKEN_SECERT, { expiresIn: "1y" });
-    
+    let jwtToken = jwt.sign({ 'email': req.body.email}, process.env.ACCESS_TOKEN_SECERT, { expiresIn: "1y" });
     var htmlString  = `
         <h1>A new business wants to join!!</h1>
         <p>Business email: ${req.body.email}</p>
-        <p>Business name: ${req.body.businessName}</p>
+        <p>Business name: ${req.body.name}</p>
         <p>Business address: ${req.body.businessAddress}</p>
-        <p>Business phone number: ${req.body.businessPhoneNumber}</p>
+        <p>Business phone number: ${req.body.businessPhone}</p>
         <p>Business website: ${req.body.businessWebsite}</p>
         <p>Business description: ${req.body.businessDescription}</p>
         <p>Other information: ${req.body.otherInformation}</p>
         <div>
-           <a name="approve" href="http://${process.env.SERVER_LINK}/api/approveAccount?jwt=${jwtToken}">Approve</a>
-           <a name="deny" href="http://${process.env.SERVER_LINK}/api/denyAccount?jwt=${jwtToken}">Deny</a>
+       
+           <a name="approve" href="${process.env.SERVER_LINK}api/approveAccount?jwt=${jwtToken}">Approve</a>
+           <a name="deny" href="${process.env.SERVER_LINK}api/denyAccount?jwt=${jwtToken}">Deny</a>
         </div>
     `;
     await mailFunctions.mailLink(req.body.email, htmlString, [], 'A new business wants to join!!', true);
