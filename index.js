@@ -24,7 +24,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 app.get('/', (req, res) => {
-    return res.render('index');
+    return res.render('homepage');
 });
 
 app.get('/api/approveAccount', loginFunctions.approveAccount);
