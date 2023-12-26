@@ -7,11 +7,11 @@ function rain(){
         let size=Math.random()*3;
         let posX=Math.floor(Math.random()*(window.innerWidth-40))
         let delay=Math.random()*-10;
-        let duration=Math.random()*12;
+        let duration=Math.random()*20;
         drop.style.width=2+size+'px';
         drop.style.left=20+posX+'px';
         drop.style.animationDelay=delay+'s';
-        drop.style.animationDuration=1+duration+'s';
+        drop.style.animationDuration=4+duration+'s';
         body.appendChild(drop);
         i++;
     }
