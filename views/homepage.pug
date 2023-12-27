@@ -3,8 +3,24 @@ html
         style 
             include ./css/homepage.css
     body
-        div(id="container")
-            button(id="login") Login
-            button(id="signup") Sign Up
+        div(id ="main")
+            div(id="container")
+                img(src="AJS.png" id="logo")
+                button(id="loginbutton" onclick="showLoginForm()") Login
+                button(id="signupbutton") Sign Up
+                div(id="slogan") Find your next job
+            div(id="loginForm")
+                div(id="loginTitle") Log in
+                input#email( class="logininput" type="email" placeholder="Email")
+                input#password(class="logininput" type="password" placeholder="Password")
+                button(id="login" onclick="loginAccount()") Log in
+                a(id="exitlogin" onclick="hideLoginForm()")
+                    img(id="x-markimage" src="x-mark.png" alt="close")
+            //-div(id="signupForm")
+                input(type="text" placeholder="Full Name")
+                input(type="email" placeholder="Email")
+
         script
             include ./js/homepage.js
+            include ./js/clientLogin.js 
+//-<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Darius Dan - Flaticon</a>

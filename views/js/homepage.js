@@ -17,3 +17,9 @@ function rain(){
     }
 }
 rain();
+function showLoginForm(){
+    document.getElementById("loginForm").style.display = "flex";
+}
+function hideLoginForm(){
+    document.getElementById("loginForm").style.display = "none";
+}
