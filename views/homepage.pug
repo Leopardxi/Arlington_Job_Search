@@ -6,19 +6,28 @@ html
         div(id ="main")
             div(id="container")
                 img(src="AJS.png" id="logo")
-                button(id="loginbutton" onclick="showLoginForm()") Login
-                button(id="signupbutton") Sign Up
+                button(id="loginbutton" onclick="showForm(loginForm)") Login
+                button(id="signupbutton" onclick="showForm(signupForm)") Sign Up
                 div(id="slogan") Find your next job
             div(id="loginForm")
                 div(id="loginTitle") Log in
                 input#email( class="logininput" type="email" placeholder="Email")
                 input#password(class="logininput" type="password" placeholder="Password")
                 button(id="login" onclick="loginAccount()") Log in
-                a(id="exitlogin" onclick="hideLoginForm()")
+                a(id="exitlogin" onclick="hideForm(loginForm)")
                     img(id="x-markimage" src="x-mark.png" alt="close")
-            //-div(id="signupForm")
-                input(type="text" placeholder="Full Name")
-                input(type="email" placeholder="Email")
+            div(id="signupForm")
+                div(id="typeAccount") Choose an account type
+                div(id="businessSignUpButton" class="button") Business
+                div(id="studentSignUpButton" class="button") Student
+                a(id="exitlogin" onclick="hideForm(signupForm)")
+                    img(id="x-markimage" src="x-mark.png" alt="close")
+                
+                //-div(id="studentSignUpButton") Student
+                //-input(class="signupinput" type="text" placeholder="Full Name" id="buisnessName")
+                //-input(class="signupinput" type="email" placeholder="Email" id="buisnessEmail")
+                //-input(class="signupinput" type="password" placeholder="Password")
+                //-button(id="signup" onclick="sendEmailForApproval()") Sign Up
 
         script
             include ./js/homepage.js

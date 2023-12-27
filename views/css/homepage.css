@@ -120,7 +120,7 @@ i:nth-child(4n+4){
     outline:none;
     background-color:#fcf0f4;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size:20px;
+    font-size:14px;
     font-weight: 200;
     height:15%;
     width:80%;
@@ -150,11 +150,72 @@ i:nth-child(4n+4){
     width:50%;
 }
 
-#x-markimage{
+#loginForm #x-markimage{
     position:absolute;
     top:0;
     right:0;
     height:9%;
     width:11.25%;
     margin:5%;
+}
+#signupForm{
+    position:absolute;
+    z-index:1;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(240, 240, 240,0.99);
+    height: 35%;
+    width:20%;
+    border-radius:4%;
+    border: 2px solid white;
+}
+.signupinput{
+    border-radius:5px;
+    border: 2px solid black;
+    outline:none;
+    background-color:#fcf0f4;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:14px;
+    font-weight: 200;
+    height:15%;
+    width:80%;
+    padding-left:10px;
+    margin:8%;
+    color:black;
+}
+#typeAccount{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:130%;
+    font-weight: 200;
+    color:black;
+    align-items:flex-start;
+    margin-bottom:5%;
+    margin-right:2%;
+}
+#signupForm .button{
+    display:flex;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:20px;
+    font-weight: 200;
+    color:black;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    border:2px solid black;
+    border-radius:5px;
+    background-color:rgba(25, 138, 10, 0.973);
+    height:20%;
+    width:50%;
+    margin:4%;
+    margin-bottom:7%;
+}
+#signupForm #x-markimage{
+    position:absolute;
+    top:0;
+    right:0;
+    height:7%;
+    width:7%;
+    margin:2%;
 }

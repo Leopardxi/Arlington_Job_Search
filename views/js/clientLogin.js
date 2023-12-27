@@ -89,14 +89,15 @@ async function loginAccount() {
 }
 // Sends a request to the server to send an email to approve it
 async function sendEmailForApproval(){
+    
     const options = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'email': document.querySelector('#buissnessaccount #emailform').value,
-            'name': document.querySelector('#buissnessaccount #nameform').value
+            'email': document.querySelector('#signupForm #buisnessEmail').value,
+           'name': document.querySelector('#signupForm #buisnessName').value
         })
     }
     const fetchData = await fetch('/api/sendEmailToAdminForNewAccount', options);
