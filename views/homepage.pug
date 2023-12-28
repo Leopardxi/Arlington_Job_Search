@@ -18,16 +18,29 @@ html
                     img(id="x-markimage" src="x-mark.png" alt="close")
             div(id="signupForm")
                 div(id="typeAccount") Choose an account type
-                div(id="businessSignUpButton" class="button") Business
-                div(id="studentSignUpButton" class="button") Student
+                button(id="businessSignUpButton" class="button" onclick="showForm(businessSignUp)") Business
+                button(id="studentSignUpButton" class="button" onclick="showForm(studentSignUp)") Student
                 a(id="exitlogin" onclick="hideForm(signupForm)")
                     img(id="x-markimage" src="x-mark.png" alt="close")
                 
-                //-div(id="studentSignUpButton") Student
-                //-input(class="signupinput" type="text" placeholder="Full Name" id="buisnessName")
-                //-input(class="signupinput" type="email" placeholder="Email" id="buisnessEmail")
-                //-input(class="signupinput" type="password" placeholder="Password")
-                //-button(id="signup" onclick="sendEmailForApproval()") Sign Up
+            div(id="studentSignUp")
+                div(id="studentSignUpTitle") Student Sign Up
+                input(class="signupinput" type="text" placeholder="Full Name" id="studentName")
+                input(class="signupinput" type="email" placeholder="Email" id="studentEmail")
+                input(class="signupinput" type="password" placeholder="Password" id="studentPassword")
+                button(id="studentSignUpButton" onclick="verifyEmail()") Sign Up
+                a(id="exitlogin" onclick="hideForm(studentSignUp)")
+                    img(id="x-markimage" src="x-mark.png" alt="close")
+            div(id="businessSignUp")
+                div(id="businessSignUpTitle") Business Sign Up
+                input(class="signupinput" type="text" placeholder="Business Name" id="buisnessName")
+                input(class="signupinput" type="email" placeholder="Email" id="buisnessEmail")
+                div(id="fileExplanation") Please make a copy of this document and attach it as a file
+                //-<a href="https://www.flaticon.com/free-icons/upload" title="upload icons">Upload icons created by Kiranshastry - Flaticon</a>
+                input(type="file" id="fileinput") 
+                button(id="businessSignUpButton" onclick="sendEmailForApproval()") Sign Up
+                a(id="exitlogin" onclick="hideForm(businessSignUp)")
+                    img(id="x-markimage" src="x-mark.png" alt="close")
 
         script
             include ./js/homepage.js

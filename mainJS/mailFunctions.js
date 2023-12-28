@@ -8,13 +8,19 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-async function mailLink(emailToSend, body, attachmentsGiven = [], subject = "", isHTML = false) {
+async function mailLink(emailToSend, body, attachmentsGiven = [], subject = "", isHTML = false,filePath=null) {
     let mailOptions = {
         from: process.env.MAIL_EMAIL,
         to: emailToSend,
         subject: subject,
         text: body,
-        attachments: attachmentsGiven
+    }
+    if(filePath){
+        mailOptions.attachments=[
+            {
+                path: filePath
+            }
+        ]
     }
     if (isHTML) {
         mailOptions.html = body;

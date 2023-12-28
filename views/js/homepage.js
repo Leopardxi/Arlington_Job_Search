@@ -23,6 +23,3 @@ function showForm(id){
 function hideForm(id){
     id.style.display = "none";
 }
-function showSignUpButtonForm(){
-    document.getElementById("signupForm").style.display = "flex";
-}

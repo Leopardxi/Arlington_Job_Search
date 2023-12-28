@@ -171,20 +171,7 @@ i:nth-child(4n+4){
     border-radius:4%;
     border: 2px solid white;
 }
-.signupinput{
-    border-radius:5px;
-    border: 2px solid black;
-    outline:none;
-    background-color:#fcf0f4;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size:14px;
-    font-weight: 200;
-    height:15%;
-    width:80%;
-    padding-left:10px;
-    margin:8%;
-    color:black;
-}
+
 #typeAccount{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size:130%;
@@ -218,4 +205,103 @@ i:nth-child(4n+4){
     height:7%;
     width:7%;
     margin:2%;
+}
+#studentSignup{
+    position:absolute;
+    z-index:15;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:25%;
+    height:55%;
+    background-color:#fcf0f4;
+    border-radius:10px;
+    border: 2px solid black;
+}
+#studentSignUpTitle{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:30px;
+    font-weight: 200;
+    color:black;
+    justify-content:center;
+    margin-bottom:5%;
+}
+#studentSignUpButton{
+    display:flex;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:20px;
+    font-weight: 200;
+    color:black;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    border:2px solid black;
+    border-radius:5px;
+    background-color:rgba(25, 138, 10, 0.973);
+    height:12%;
+    width:36%;
+    margin-top:-2%;
+}
+.signupinput{
+    border-radius:5px;
+    border: 2px solid black;
+    outline:none;
+    background-color:#fcf0f4;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:14px;
+    font-weight: 200;
+    height:12%;
+    width:80%;
+    padding-left:10px;
+    margin-bottom:10%;
+    color:black;
+}
+#studentSignUp #x-markimage{
+    position:absolute;
+    top:0;
+    right:0;
+    height:6%;
+    width:7%;
+    margin:2%;
+}
+#businessSignUp{
+    position:absolute;
+    z-index:15;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:25%;
+    height:50%;
+    background-color:#fcf0f4;
+    border-radius:10px;
+    border: 2px solid black;
+}
+#businessSignUpTitle{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:30px;
+    font-weight: 200;
+    color:black;
+    justify-content:center;
+    margin-bottom:5%;
+}
+#businessSignUp #x-markimage{
+    position:absolute;
+    top:0;
+    right:0;
+    height:6.5%;
+    width:7%;
+    margin:3%;
+}
+#fileExplanation{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:14px;
+    font-weight: 200;
+    color:black;
+    justify-content:center;
+    text-align:center;
+    margin:10%;
+    margin-top:-5%;
+    margin-bottom:5%;
 }

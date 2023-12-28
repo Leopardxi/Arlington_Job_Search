@@ -131,7 +131,8 @@ function makeNewAccessToken(refreshToken){
     Then the admin can approve the account or not
     By clicking a link in the email
 */
-async function sendEmailToAdminForNewAccount(req, res){
+/*
+async function sendEmailToAdmi(req, res){
     if (typeof req.body.email !== "string") return res.status(400).send("No email was given to verify")
     let jwtToken = jwt.sign({ 'email': req.body.email}, process.env.ACCESS_TOKEN_SECERT, { expiresIn: "1y" });
     var htmlString  = `
@@ -152,6 +153,7 @@ async function sendEmailToAdminForNewAccount(req, res){
     await mailFunctions.mailLink(req.body.email, htmlString, [], 'A new business wants to join!!', true);
     return res.send("Your account has been created and is waiting for approval");
 }
+*/
 /*
     Checks cookies to see if user is logged in or not
     If user is logged in then it will call next() to continue with the request
@@ -175,7 +177,21 @@ async function checkCookieForLogin(req, res, next){
     }
     next();
 }
-
+async function sendEmailToAdminForNewAccount(req, res){
+    if (typeof req.body.email !== "string") return res.status(400).send("No email was given to verify")
+    let jwtToken = jwt.sign({ 'email': req.body.email}, process.env.ACCESS_TOKEN_SECERT, { expiresIn: "1y" });
+    var htmlString  = `
+        <h1>A new business wants to join!!</h1>
+        <p>Business name: ${req.body.name}</p>
+        <div>
+       
+           <a name="approve" href="${process.env.SERVER_LINK}api/approveAccount?jwt=${jwtToken}">Approve</a>
+           <a name="deny" href="${process.env.SERVER_LINK}api/denyAccount?jwt=${jwtToken}">Deny</a>
+        </div>
+    `;
+    await mailFunctions.mailLink(req.body.email, htmlString, [], 'A new business wants to join!!', true, req.file.path);
+    return res.send("Your account has been created and is waiting for approval");
+};
 module.exports = {
     createAccount,
     approveAccount,

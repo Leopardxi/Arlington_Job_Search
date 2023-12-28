@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload=multer({dest:'uploads/'});
 const app = express();
 const mongoose = require('mongoose');
 const loginFunctions = require('./mainJS/loginFunctions.js')
@@ -35,8 +37,9 @@ app.post('/api/loginAccount', loginFunctions.loginAccount);
     loginFunctions.sendEmailToAdminForNewAccount(req, res);
 });
 */
-
-app.post('/api/sendEmailToAdminForNewAccount', loginFunctions.sendEmailToAdminForNewAccount);
+app.post('/api/sendEmailToAdminForNewAccount', upload.single('file'),loginFunctions.sendEmailToAdminForNewAccount);
+/*
+app.post('/api/sendEmailToAdminForNewAccount', loginFunctions.sendEmailToAdminForNewAccount);*/
 
 // Render webpages
 app.get('/signUp/:jwtToken', loginFunctions.sendSignUpPage);

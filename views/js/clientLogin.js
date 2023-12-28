@@ -1,16 +1,20 @@
+const { response } = require("express");
+
 // Sends a request to the server to create an account
 async function createAccount() {
+    
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'email': document.getElementById('email').value,
-            'password': document.getElementById('password').value,
-            'jwtToken': jwtToken
+            'email': document.getElementById('studentEmail').value,
+            'password': document.getElementById('studentPassword').value,
+            'jwt': jwtToken
         })
     }
+    console.log(options);
     const fetchData = await fetch('/api/createAccount', options);
     var resp = await fetchData.text();
 
@@ -89,27 +93,27 @@ async function loginAccount() {
 }
 // Sends a request to the server to send an email to approve it
 async function sendEmailForApproval(){
-    
+    const file=document.getElementById('fileinput').files[0];
+    const formData=new FormData();
+    formData.append('file',file);
+    formData.append('email',document.getElementById('buisnessEmail').value);
+    formData.append('name',document.getElementById('buisnessName').value);
+
     const options = {
         method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'email': document.querySelector('#signupForm #buisnessEmail').value,
-           'name': document.querySelector('#signupForm #buisnessName').value
-        })
+        body:formData,
     }
-    const fetchData = await fetch('/api/sendEmailToAdminForNewAccount', options);
-    var resp = await fetchData.text();
+    for (let pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+    }
+    const resp = await fetch('/api/sendEmailToAdminForNewAccount', options);
     
-    if (fetchData.status != 200 && fetchData.status != 201){
+    if (resp.status != 200 && resp.status != 201){
         return alert("There was an issue for requesting the service.")
     }
-    alert(resp);
+    return alert("Your request has been sent. Please wait for approval.");
     //window.location.href = '/dashboard';
 }
-
 //we need to change getElementsById to getElementsByName I think since it's part of a form
 // nah we can stil use getElemtntById
 // sahre me the link for the port
