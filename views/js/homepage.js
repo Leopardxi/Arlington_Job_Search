@@ -23,3 +23,15 @@ function showForm(id){
 function hideForm(id){
     id.style.display = "none";
 }
+document.getElementById('uploadimage').addEventListener('click', function() {
+    document.getElementById('fileinput').click();
+});
+document.getElementById('fileinput').addEventListener('change', function() {
+    var fileName = this.files[0].name;
+    document.getElementById('filename').textContent = 'File uploaded: ' + fileName;
+});
+document.getElementById('removeFile').addEventListener('click', function() {
+    var fileInput = document.getElementById('fileinput');
+    fileInput.value = '';
+    document.getElementById('filename').textContent = '';
+});

@@ -35,9 +35,12 @@ html
                 div(id="businessSignUpTitle") Business Sign Up
                 input(class="signupinput" type="text" placeholder="Business Name" id="buisnessName")
                 input(class="signupinput" type="email" placeholder="Email" id="buisnessEmail")
-                div(id="fileExplanation") Please make a copy of this document and attach it as a file
+                div(id="fileExplanation") Please make a copy of this document and attach it as a pdf file
                 //-<a href="https://www.flaticon.com/free-icons/upload" title="upload icons">Upload icons created by Kiranshastry - Flaticon</a>
+                img(src="upload.png" id="uploadimage" alt="upload")
                 input(type="file" id="fileinput") 
+                div(id="filename")
+                button(id="removeFile") Remove files
                 button(id="businessSignUpButton" onclick="sendEmailForApproval()") Sign Up
                 a(id="exitlogin" onclick="hideForm(businessSignUp)")
                     img(id="x-markimage" src="x-mark.png" alt="close")
