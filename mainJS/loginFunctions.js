@@ -2,6 +2,7 @@ const mailFunctions = require('../mainJS/mailFunctions.js')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const schemas = require('../schemas/schema.js');
+const fs=require('fs');
 
 /*
     Verifies if the json web token passed in is correct or not
@@ -190,7 +191,14 @@ async function sendEmailToAdminForNewAccount(req, res){
         </div>
     `;
     await mailFunctions.mailLink(req.body.email, htmlString, [], 'A new business wants to join!!', true, req.file.path);
+    fs.unlink(req.file.path, (err) => {
+        if (err) {
+            alert('An error occurred while deleting the file:', err);
+        }
+    });
     return res.send("Your account has been created and is waiting for approval");
+    
+    
 };
 module.exports = {
     createAccount,

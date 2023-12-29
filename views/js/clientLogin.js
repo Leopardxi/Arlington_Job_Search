@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 // Sends a request to the server to create an account
 async function createAccount() {
     
@@ -14,7 +12,6 @@ async function createAccount() {
             'jwt': jwtToken
         })
     }
-    console.log(options);
     const fetchData = await fetch('/api/createAccount', options);
     var resp = await fetchData.text();
 
@@ -103,11 +100,8 @@ async function sendEmailForApproval(){
         method: "POST",
         body:formData,
     }
-    for (let pair of formData.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]); 
-    }
     const resp = await fetch('/api/sendEmailToAdminForNewAccount', options);
-    
+
     if (resp.status != 200 && resp.status != 201){
         return alert("There was an issue for requesting the service.")
     }
