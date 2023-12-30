@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const schemas = require('../schemas/schema.js');
 const fs=require('fs');
-
 /*
     Verifies if the json web token passed in is correct or not
     If it's correct then returns the decoded token otheriwse it returns false
@@ -92,8 +91,44 @@ async function createAccount(req, res) {
     });
     
     await newUser.save();
+    const options={
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(
+            {
+                'apiKey': process.env.API_KEY,
+                'email': email.value,
+                'password': password.value,
+            }
+        ),
+        
+    }
+    const resp = await fetch('https://arlingtonscholar.onrender.com/api/addUsertoFormMaker', options);
+    if(resp.status!=200||resp.status!=201){
+        return res.send("Error");
+    }
+    const resp2= await fetch('https://arlingtonscholar.onrender.com/api/accessUserForms', options);
+    if(resp2.status!=200||resp2.status!=201){
+        return res.send("Error");
+    }
     return res.status(201).send("Done!!!");
+   
 }
+/*
+const options2={
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(
+            {
+                'api_key': process.env.api_key,
+                'email': document.querySelector('.businessSignUp #email').value,
+                'password': document.querySelector('.businessSignUp #password').value,
+            }
+        ),
+        
+    }
+    const resp = await fetch('https://arlingtonscholar.onrender.com/api/addUsertoFormMaker', options2);
+    const data = await response.json();*/
 /*
     Logs in the user with the email and password given
     If correct then returns accesToken and refreshToken as cookies

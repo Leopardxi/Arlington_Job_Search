@@ -1,4 +1,5 @@
 // Sends a request to the server to create an account
+
 async function createAccount() {
     
     const options = {
@@ -7,17 +8,16 @@ async function createAccount() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'email': document.getElementById('studentEmail').value,
-            'password': document.getElementById('studentPassword').value,
-            'jwt': jwtToken
+            'email': document.getElementById('email').value,
+            'password': document.getElementById('password').value,
+            'jwtToken': jwtToken
         })
     }
     const fetchData = await fetch('/api/createAccount', options);
     var resp = await fetchData.text();
-
     if (fetchData.status != 200 && fetchData.status != 201) return alert(resp);
-
-    window.location.href = '/dashboard';
+    
+    window.location.href = 'views/homepage.pug';
 }
 /*
 fetch('/submit',{
